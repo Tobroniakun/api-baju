@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
 from flask_cors import CORS
 
-app = Flask(_name_)
+app = Flask(__name__)  # Perbaikan di sini
 api = Api(app)
 CORS(app)
 
@@ -115,5 +115,5 @@ api.add_resource(BajuList, "/baju")
 api.add_resource(Baju, "/baju/<int:baju_id>")
 
 # Menjalankan aplikasi
-if _name_ == "_main_":
+if __name__ == "__main__":  # Perbaikan di sini
     app.run(debug=True)
